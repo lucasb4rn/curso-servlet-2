@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-
-<% 
-String nomeEmpresa = (String) request.getAttribute("empresa");
-System.out.println(nomeEmpresa);
-%>
-
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -12,7 +6,7 @@ System.out.println(nomeEmpresa);
 </head>
 <body>
 
-Empresa <%= nomeEmpresa %> cadastrada com sucesso!!
+Empresa ${empresa } cadastrada com sucesso!!
 
 </body>
 </html>
