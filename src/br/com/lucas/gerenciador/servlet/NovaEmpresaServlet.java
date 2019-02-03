@@ -33,11 +33,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		banco.adiciona(empresa);
 		
 		
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Empresa " + nomeEmpresa + " cadastrada com sucesso!!");
-		out.println("</body>");
-		out.println("</html>");
+	
 		
 	}
 
