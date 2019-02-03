@@ -2,6 +2,9 @@ package br.com.lucas.gerenciador.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,9 +29,21 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		//http://localhost:8080/gerenciador/novaEmpresa?nome=lucasEmpresa URL
 		String nomeEmpresa = request.getParameter("nome");
+		String paramDataEmpresa = request.getParameter("data");
+		
+		SimpleDateFormat sdt = new SimpleDateFormat("dd/MM/yyyy");
+		
+		Date dataAbertura = null;
+		
+		try {
+			dataAbertura = sdt.parse(paramDataEmpresa);
+		} catch (ParseException e) {
+			throw new ServletException(e);
+		}
 		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
+		empresa.setDataAbertura(dataAbertura);
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
