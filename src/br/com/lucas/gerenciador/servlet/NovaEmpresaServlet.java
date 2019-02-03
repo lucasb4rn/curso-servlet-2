@@ -26,6 +26,13 @@ public class NovaEmpresaServlet extends HttpServlet {
 		//http://localhost:8080/gerenciador/novaEmpresa?nome=lucasEmpresa URL
 		String nomeEmpresa = request.getParameter("nome");
 		
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+		
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
+		
+		
 		out.println("<html>");
 		out.println("<body>");
 		out.println("Empresa " + nomeEmpresa + " cadastrada com sucesso!!");
