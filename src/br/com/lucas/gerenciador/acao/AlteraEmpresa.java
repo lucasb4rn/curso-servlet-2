@@ -14,7 +14,7 @@ import br.com.lucas.gerenciador.modelo.Empresa;
 
 public class AlteraEmpresa {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		System.out.println("altera empresas");
 		
 		System.out.println("Alterando Empresa");
@@ -42,9 +42,10 @@ public class AlteraEmpresa {
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dataAbertura);
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
-		
 		System.out.println(id);
+		
+		return "redirect:entrada?acao=ListaEmpresas";
+		
 		
 	}
 		

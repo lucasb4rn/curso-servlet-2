@@ -22,8 +22,6 @@ public class ListaEmpresas {
 		
 		return "forward:listaEmpresas.jsp";
 		
-	
-		
 	}
 	
 	
