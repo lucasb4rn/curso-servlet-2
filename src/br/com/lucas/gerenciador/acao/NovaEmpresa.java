@@ -1,4 +1,4 @@
-package br.com.lucas.gerenciador.servlet;
+package br.com.lucas.gerenciador.acao;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,29 +7,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.lucas.gerenciador.modelo.Banco;
 import br.com.lucas.gerenciador.modelo.Empresa;
 
-/**
- * Servlet implementation class NovaEmpresaServlet
- */
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
+public class NovaEmpresa {
 	
-	private static final long serialVersionUID = 1L;
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	System.out.println("Cadastrando nova empresa");
 		
-		System.out.println("Cadastrando nova empresa");
-		
-		PrintWriter out = response.getWriter();
-		
-		//http://localhost:8080/gerenciador/novaEmpresa?nome=lucasEmpresa URL
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataEmpresa = request.getParameter("data");
 		
@@ -39,7 +28,9 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		try {
 			dataAbertura = sdt.parse(paramDataEmpresa);
+			
 		} catch (ParseException e) {
+			
 			throw new ServletException(e);
 		}
 		
@@ -52,12 +43,8 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		request.setAttribute("empresa", empresa.getNome());
 		
-		response.sendRedirect("listaEmpresas");
-		
-		
-//		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/listaEmpresas");
-//		requestDispatcher.forward(request, response);
+		response.sendRedirect("entrada?acao=ListaEmpresas");
 		
 	}
-
+		
 }
