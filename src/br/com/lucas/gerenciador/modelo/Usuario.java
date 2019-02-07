@@ -24,4 +24,16 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	public boolean ehIgual(String login, String senha) {
+		if (!this.login.equals(login)) {
+			return false;
+		}
+
+		if (!this.senha.equals(senha)) {
+			return false;
+		}
+
+		return true;
+	}
+
 }

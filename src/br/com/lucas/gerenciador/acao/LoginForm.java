@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class loginFrom implements Acao {
+public class LoginForm implements Acao {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
