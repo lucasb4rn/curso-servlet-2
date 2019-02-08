@@ -30,8 +30,6 @@ public class UnicaEntradaServlet extends HttpServlet {
 			return;
 		}
 		
-		
-		
 
 		String nomeDaClasse = "br.com.lucas.gerenciador.acao." + paramAcao;
 
