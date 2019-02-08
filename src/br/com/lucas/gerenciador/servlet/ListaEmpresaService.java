@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.thoughtworks.xstream.XStream;
 
 import br.com.lucas.gerenciador.modelo.Banco;
 import br.com.lucas.gerenciador.modelo.Empresa;
@@ -22,11 +23,19 @@ public class ListaEmpresaService extends HttpServlet {
 		
 		List<Empresa> empresas = new Banco().getEmpresas();
 		
-		Gson gson = new Gson();
+		/*Gson gson = new Gson();
 		String json = gson.toJson(empresas);
 		
 		response.setContentType("application/json");
-		response.getWriter().println(json);		
+		response.getWriter().println(json);	*/	
+		
+		XStream xstrem = new XStream();
+		xstrem.alias("empresa", Empresa.class);
+		String xml = xstrem.toXML(empresas);
+		
+		response.setContentType("application/xml");
+		response.getWriter().println(xml);	
+		
 		
 		
 	}
