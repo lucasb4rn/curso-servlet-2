@@ -13,17 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet Filter implementation class AutorizacaoFilter
- */
 @WebFilter("/entrada")
 public class AutorizacaoFilter implements Filter {
-    public AutorizacaoFilter() {
-        // TODO Auto-generated constructor stub
-    }
-
+	
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 
+		System.out.println("AutorizacaoFilter");
+		
 		
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -52,7 +48,6 @@ public class AutorizacaoFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
 		
 	}
 
